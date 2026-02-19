@@ -22,15 +22,15 @@ const App: React.FC = () => {
   }, []);
 
   // Écouter un raccourci clavier secret (Ctrl + Shift + L) pour ouvrir l'admin
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'L') {
-        setIsAdminOpen(true);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  // useEffect(() => {
+  //   const handleKeyDown = (e: KeyboardEvent) => {
+  //     // if (e.ctrlKey && e.shiftKey && e.key === 'L') {
+  //     //   setIsAdminOpen(true);
+  //     // }
+  //   };
+  //   window.addEventListener('keydown', handleKeyDown);
+  //   return () => window.removeEventListener('keydown', handleKeyDown);
+  // }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
