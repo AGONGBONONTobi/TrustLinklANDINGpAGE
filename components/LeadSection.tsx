@@ -1,25 +1,41 @@
-
 import React, { useState } from 'react';
 import { saveLead } from '../services/leads';
 
 const LeadSection: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    actor_type: ''
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    
+    // Validation
+    if (!formData.email || !formData.name || !formData.phone || !formData.actor_type) {
+      setError('Veuillez remplir tous les champs');
+      return;
+    }
     
     setIsLoading(true);
     setError('');
 
     try {
-      const success = await saveLead(email);
+      const success = await saveLead(formData);
       if (success) {
         setIsSubmitted(true);
-        setEmail('');
+        setFormData({ name: '', email: '', phone: '', actor_type: '' });
       } else {
         setError('Une erreur est survenue. Veuillez réessayer.');
       }
@@ -46,37 +62,131 @@ const LeadSection: React.FC = () => {
           </div>
 
           {!isSubmitted ? (
-            <div className="max-w-lg mx-auto">
-              <form onSubmit={handleSubmit} className="relative">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input 
-                    type="email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Votre adresse email" 
-                    required
-                    className="flex-grow px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-lg"
-                  />
-                  <button 
-                    type="submit" 
-                    disabled={isLoading}
-                    className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 disabled:opacity-50 min-w-[160px]"
-                  >
-                    {isLoading ? (
-                      <i className="fas fa-spinner animate-spin"></i>
-                    ) : (
-                      <>
-                        Rejoindre
-                        <i className="fas fa-paper-plane"></i>
-                      </>
-                    )}
-                  </button>
+            <div className="max-w-2xl mx-auto">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Actor Type Selection */}
+                <div>
+                  <label className="block text-slate-700 font-semibold mb-2 text-left">
+                    Je suis un(e) *
+                  </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, actor_type: 'vendor' })}
+                      className={`p-4 rounded-xl border-2 transition-all ${
+                        formData.actor_type === 'vendor'
+                          ? 'border-emerald-600 bg-emerald-50 text-emerald-700'
+                          : 'border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      <i className="fas fa-store text-2xl mb-2"></i>
+                      <div className="font-bold">Vendeur</div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, actor_type: 'buyer' })}
+                      className={`p-4 rounded-xl border-2 transition-all ${
+                        formData.actor_type === 'buyer'
+                          ? 'border-emerald-600 bg-emerald-50 text-emerald-700'
+                          : 'border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      <i className="fas fa-shopping-bag text-2xl mb-2"></i>
+                      <div className="font-bold">Acheteur</div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, actor_type: 'rider' })}
+                      className={`p-4 rounded-xl border-2 transition-all ${
+                        formData.actor_type === 'rider'
+                          ? 'border-emerald-600 bg-emerald-50 text-emerald-700'
+                          : 'border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      <i className="fas fa-motorcycle text-2xl mb-2"></i>
+                      <div className="font-bold">Livreur</div>
+                    </button>
+                  </div>
                 </div>
-                {error && <p className="text-red-500 text-sm mt-2 text-center font-medium">{error}</p>}
+
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-slate-700 font-semibold mb-2 text-left">
+                    Nom complet *
+                  </label>
+                  <input 
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Ex: John Doe"
+                    required
+                    className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-lg"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-slate-700 font-semibold mb-2 text-left">
+                    Adresse email *
+                  </label>
+                  <input 
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="exemple@email.com"
+                    required
+                    className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-lg"
+                  />
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label htmlFor="phone" className="block text-slate-700 font-semibold mb-2 text-left">
+                    Numéro WhatsApp *
+                  </label>
+                  <input 
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+234 801 234 5678"
+                    required
+                    className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-lg"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="w-full bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 disabled:opacity-50 mt-6"
+                >
+                  {isLoading ? (
+                    <i className="fas fa-spinner animate-spin"></i>
+                  ) : (
+                    <>
+                      Rejoindre la liste d'attente
+                      <i className="fas fa-paper-plane"></i>
+                    </>
+                  )}
+                </button>
+
+                {error && (
+                  <p className="text-red-500 text-sm mt-2 text-center font-medium bg-red-50 p-3 rounded-lg">
+                    <i className="fas fa-exclamation-circle mr-1"></i>
+                    {error}
+                  </p>
+                )}
               </form>
+
               <p className="text-slate-400 text-sm mt-4 text-center">
-                <i className="fas fa-info-circle mr-1"></i>
-                Pas de spam. Vos données sont protégées.
+                <i className="fas fa-lock mr-1"></i>
+                Pas de spam. Vos données sont protégées et sécurisées.
               </p>
             </div>
           ) : (
@@ -90,7 +200,7 @@ const LeadSection: React.FC = () => {
                 onClick={() => setIsSubmitted(false)}
                 className="mt-6 text-emerald-600 font-bold hover:underline"
               >
-                Inscrire un autre email
+                Inscrire une autre personne
               </button>
             </div>
           )}

@@ -1,54 +1,68 @@
+// services/leads.ts - API TrustLink Waitlist
+// Utilise les variables d'environnement pour la sécurité
 
-import { db } from './firebase';
-import { collection, addDoc, query, orderBy, Timestamp, onSnapshot } from 'firebase/firestore';
+interface LeadData {
+  name: string;
+  email: string;
+  phone: string;
+  actor_type: string;
+}
 
+// URL de l'API depuis les variables d'environnement
+const API_URL = import.meta.env.VITE_API_URL
+
+/**
+ * Enregistre un nouveau prospect dans l'API TrustLink
+ */
+export const saveLead = async (data: LeadData): Promise<boolean> => {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        actor_type: data.actor_type,
+      }),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log('✅ Lead saved:', result);
+      return true;
+    } else {
+      const error = await response.json();
+      console.error('❌ Error saving lead:', error);
+      
+      // Gérer le cas de l'email en double
+      if (response.status === 409) {
+        alert('Cet email est déjà inscrit sur notre liste d\'attente !');
+      }
+      
+      return false;
+    }
+  } catch (error) {
+    console.error('❌ Network error:', error);
+    return false;
+  }
+};
+
+// Interface pour compatibilité avec l'ancien code (si nécessaire)
 export interface Lead {
   email: string;
   date: string;
   status: 'pending' | 'verified';
 }
 
-/**
- * Enregistre un nouveau prospect dans Firestore.
- * La collection "leads" sera créée automatiquement au premier appel.
- */
-export const saveLead = async (email: string): Promise<boolean> => {
-  try {
-    await addDoc(collection(db, "leads"), {
-      email,
-      date: Timestamp.now(),
-      status: 'pending'
-    });
-    return true;
-  } catch (error) {
-    console.error("Erreur lors de l'enregistrement Firebase:", error);
-    return false;
-  }
-};
-
-/**
- * Écoute les changements de la collection leads en temps réel.
- * @param callback Fonction appelée à chaque mise à jour de la base de données.
- * @returns Une fonction de désinscription (unsubscribe) pour nettoyer le listener.
- */
+// Fonction vide pour compatibilité (non utilisée avec notre API)
 export const subscribeToLeads = (callback: (leads: Lead[]) => void) => {
-  const q = query(collection(db, "leads"), orderBy("date", "desc"));
-  
-  return onSnapshot(q, (querySnapshot) => {
-    const leads = querySnapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        email: data.email,
-        date: data.date?.toDate ? data.date.toDate().toISOString() : new Date().toISOString(),
-        status: data.status
-      } as Lead;
-    });
-    callback(leads);
-  }, (error) => {
-    console.error("Erreur temps réel Firestore:", error);
-  });
+  console.warn('subscribeToLeads: Non implémenté avec l\'API TrustLink');
+  return () => {}; // Fonction unsubscribe vide
 };
 
 export const clearLeads = () => {
-  console.warn("La suppression groupée n'est pas recommandée via le client Firestore pour des raisons de sécurité.");
+  console.warn('clearLeads: Utiliser le dashboard admin à la place');
 };
