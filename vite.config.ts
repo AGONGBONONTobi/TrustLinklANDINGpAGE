@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        allowedHosts: [
+          'trustlinklandingpage.onrender.com',
+          '.onrender.com', // Pour accepter tous les sous-domaines Render
+          'localhost',
+          '.localhost'
+        ],
       },
       plugins: [react()],
       define: {
