@@ -7,62 +7,62 @@ interface HowItWorksProps {
 const HowItWorks: React.FC<HowItWorksProps> = ({ lang }) => {
   const t = {
     fr: {
-      sectionTitle: "Un Processus de Confiance",
-      sectionSubtitle: "Plus d'arnaques, plus de doute. TrustLink assure la sécurité de chaque étape du Nigeria au Bénin.",
+      sectionTitle: "Un Corridor Sécurisé",
+      sectionSubtitle: "De Lagos à Cotonou, nous transformons la proximité géographique en levier de rentabilité immédiat.",
       steps: [
         {
-          title: "Création du lien",
-          description: "Le vendeur génère un lien de vente TrustLink unique en quelques clics.",
-          icon: "fa-link",
+          title: "Sourcing & Catalogue",
+          description: "Choisissez parmi nos fournisseurs nigérians vérifiés ou envoyez-nous votre demande spécifique via WhatsApp.",
+          icon: "fa-search-plus",
           color: "bg-blue-500"
         },
         {
-          title: "Paiement Sécurisé",
-          description: "L'acheteur paie via Paystack. Les fonds sont bloqués en toute sécurité sur notre compte séquestre.",
-          icon: "fa-credit-card",
+          title: "Paiement en CFA (MoMo)",
+          description: "Payez vos articles en Francs CFA via Mobile Money. Nous gérons la conversion en Naira pour le fournisseur.",
+          icon: "fa-wallet",
           color: "bg-emerald-500"
         },
         {
-          title: "Code QR Unique",
-          description: "Un code QR infalsifiable est généré pour l'acheteur une fois le paiement validé.",
-          icon: "fa-qrcode",
-          color: "bg-purple-500"
+          title: "Logistique Express",
+          description: "Nos agents à Lagos collectent, vérifient la qualité et expédient via notre corridor sécurisé vers Cotonou.",
+          icon: "fa-truck-fast",
+          color: "bg-orange-500"
         },
         {
-          title: "Scan & Déblocage",
-          description: "Le livreur scanne le code à la livraison. Le vendeur reçoit son code de transaction et ses fonds.",
-          icon: "fa-check-double",
-          color: "bg-orange-500"
+          title: "Réception & Succès",
+          description: "Récupérez votre marchandise à nos points relais ou soyez livré à domicile en moins d'une semaine.",
+          icon: "fa-boxes-packing",
+          color: "bg-purple-500"
         }
       ]
     },
     en: {
-      sectionTitle: "A Process You Can Trust",
-      sectionSubtitle: "No more scams, no more doubt. TrustLink ensures security at every step from Nigeria to Benin.",
+      sectionTitle: "A Secure Corridor",
+      sectionSubtitle: "From Lagos to Cotonou, we turn geographical proximity into an immediate profitability driver.",
       steps: [
         {
-          title: "Link Creation",
-          description: "The seller generates a unique TrustLink sales link in just a few clicks.",
-          icon: "fa-link",
+          title: "Sourcing & Catalog",
+          description: "Choose from our verified Nigerian suppliers or send us your specific request via WhatsApp.",
+          icon: "fa-search-plus",
           color: "bg-blue-500"
         },
         {
-          title: "Secure Payment",
-          description: "The buyer pays via Paystack. Funds are securely held in our escrow account.",
-          icon: "fa-credit-card",
+          title: "CFA Payment (MoMo)",
+          description: "Pay for your items in CFA Francs via Mobile Money. We handle the Naira conversion for the supplier.",
+          icon: "fa-wallet",
           color: "bg-emerald-500"
         },
         {
-          title: "Unique QR Code",
-          description: "A tamper-proof QR code is generated for the buyer once payment is validated.",
-          icon: "fa-qrcode",
-          color: "bg-purple-500"
+          title: "Express Logistics",
+          description: "Our agents in Lagos collect, verify quality, and ship via our secure corridor to Cotonou.",
+          icon: "fa-truck-fast",
+          color: "bg-orange-500"
         },
         {
-          title: "Scan & Release",
-          description: "The delivery agent scans the code upon delivery. The seller receives their transaction code and funds.",
-          icon: "fa-check-double",
-          color: "bg-orange-500"
+          title: "Reception & Success",
+          description: "Pick up your goods at our relay points or get home delivery in less than a week.",
+          icon: "fa-boxes-packing",
+          color: "bg-purple-500"
         }
       ]
     }
@@ -90,12 +90,14 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ lang }) => {
                 <i className={`fas ${step.icon}`}></i>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-              <p className="text-slate-500 leading-relaxed">{step.description}</p>
+              <p className="text-slate-500 leading-relaxed text-sm md:text-base">
+                {step.description}
+              </p>
               
-              {/* Flèche pour mobile uniquement */}
+              {/* Indicateur visuel pour mobile (sauf le dernier) */}
               {index < t.steps.length - 1 && (
-                <div className="mt-4 md:hidden">
-                  <i className="fas fa-chevron-down text-slate-300"></i>
+                <div className="mt-4 md:hidden text-slate-300">
+                  <i className="fas fa-chevron-down text-xl"></i>
                 </div>
               )}
             </div>
