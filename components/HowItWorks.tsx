@@ -8,7 +8,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ lang }) => {
   const t = {
     fr: {
       sectionTitle: "Un Corridor Sécurisé",
-      sectionSubtitle: "De Lagos à Cotonou, nous transformons la proximité géographique en levier de rentabilité immédiat.",
+      sectionSubtitle: "Plus d'arnaques, plus de doute. TrustLink assure la sécurité de chaque étape du Nigeria au Bénin.",
       steps: [
         {
           title: "Sourcing & Catalogue",
@@ -38,7 +38,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ lang }) => {
     },
     en: {
       sectionTitle: "A Secure Corridor",
-      sectionSubtitle: "From Lagos to Cotonou, we turn geographical proximity into an immediate profitability driver.",
+      sectionSubtitle: "No more scams, no more doubt. TrustLink ensures security at every stage from Nigeria to Benin.",
       steps: [
         {
           title: "Sourcing & Catalog",
