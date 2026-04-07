@@ -3,31 +3,30 @@ import React from 'react';
 
 const steps = [
   {
-    title: "Création du lien",
-    description: "Le vendeur génère un lien de vente TrustLink unique en quelques clics.",
-    icon: "fa-link",
+    title: "Sourcing & Catalogue",
+    description: "Choisissez parmi nos fournisseurs nigérians vérifiés ou envoyez-nous votre demande spécifique via WhatsApp.",
+    icon: "fa-search-plus",
     color: "bg-blue-500"
   },
   {
-    title: "Paiement Sécurisé",
-    description: "L'acheteur paie via Paystack. Les fonds sont bloqués en toute sécurité sur notre compte séquestre.",
-    icon: "fa-credit-card",
+    title: "Paiement en CFA (MoMo)",
+    description: "Payez vos articles en Francs CFA via Mobile Money. Nous gérons la conversion en Naira pour le fournisseur.",
+    icon: "fa-wallet",
     color: "bg-emerald-500"
   },
   {
-    title: "Code QR Unique",
-    description: "Un code QR infalsifiable est généré pour l'acheteur une fois le paiement validé.",
-    icon: "fa-qrcode",
-    color: "bg-purple-500"
+    title: "Logistique Express",
+    description: "Nos agents à Lagos collectent, vérifient la qualité et expédient via notre corridor sécurisé vers Cotonou.",
+    icon: "fa-truck-fast",
+    color: "bg-orange-500"
   },
   {
-    title: "Scan & Déblocage",
-    description: "Le livreur scanne le code à la livraison. Le vendeur reçoit son code de transaction et ses fonds.",
-    icon: "fa-check-double",
-    color: "bg-orange-500"
+    title: "Réception & Succès",
+    description: "Récupérez votre marchandise à nos points relais ou soyez livré à domicile en moins d'une semaine.",
+    icon: "fa-boxes-packing",
+    color: "bg-purple-500"
   }
 ];
-
 const HowItWorks: React.FC = () => {
   return (
     <section id="how-it-works" className="py-24 bg-white relative">

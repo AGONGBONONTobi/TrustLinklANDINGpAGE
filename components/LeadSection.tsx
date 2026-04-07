@@ -69,7 +69,7 @@ const LeadSection: React.FC = () => {
                   <label className="block text-slate-700 font-semibold mb-2 text-left">
                     Je suis un(e) *
                   </label>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
                       onClick={() => setFormData({ ...formData, actor_type: 'vendor' })}
@@ -93,18 +93,6 @@ const LeadSection: React.FC = () => {
                     >
                       <i className="fas fa-shopping-bag text-2xl mb-2"></i>
                       <div className="font-bold">Acheteur</div>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, actor_type: 'rider' })}
-                      className={`p-4 rounded-xl border-2 transition-all ${
-                        formData.actor_type === 'rider'
-                          ? 'border-emerald-600 bg-emerald-50 text-emerald-700'
-                          : 'border-slate-200 hover:border-slate-300'
-                      }`}
-                    >
-                      <i className="fas fa-motorcycle text-2xl mb-2"></i>
-                      <div className="font-bold">Livreur</div>
                     </button>
                   </div>
                 </div>

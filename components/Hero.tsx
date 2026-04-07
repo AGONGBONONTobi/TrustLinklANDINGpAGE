@@ -20,12 +20,12 @@ const Hero: React.FC = () => {
               NIGERIA - BENIN : COMMERCE SÉCURISÉ
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-              Vendez et Achetez en <span className="gradient-text">Toute Confiance</span> sans Frontières.
+              Approvisionnez votre Boutique depuis le <span className="gradient-text">Nigeria en 48h</span>.
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl">
-              TrustLink sécurise vos transactions transfrontalières. Le vendeur est payé, l'acheteur est livré. Pas de scan de QR code, pas de transfert de fonds. La confiance, enfin simplifiée.
+              L'alternative agile à l'importation chinoise. Accédez aux grossistes de Lagos, payez en CFA et recevez vos marchandises à Cotonou sous 2 à 7 jours. 
+              <strong> Pas de minimum de commande (MOQ), pas de stress.</strong>
             </p>
-            
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#waitlist" className="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-200 flex items-center justify-center gap-2">
                 M'inscrire sur la liste d'attente

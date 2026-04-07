@@ -61,16 +61,30 @@ const TransactionSimulator: React.FC = () => {
                 </div>
 
                 <div className="flex-grow flex flex-col justify-center text-center px-4 animate-in">
+                  // Dans TransactionSimulator.tsx
                   {currentStep === 1 && (
                     <div className="space-y-6">
-                      <div className="w-20 h-20 bg-emerald-500/20 text-emerald-500 rounded-2xl flex items-center justify-center mx-auto text-3xl">
-                        <i className="fas fa-link"></i>
+                      <h3 className="text-xl font-bold">Sélection du Stock</h3>
+                      <p className="text-sm text-slate-400">Grossiste : Balogun Market, Lagos</p>
+                      <div className="bg-slate-700 p-4 rounded-xl text-left">
+                        <p className="text-xs text-emerald-400 font-mono">Item: 50x Chemises Urban</p>
+                        <p className="text-lg font-bold">Prix: 145,000 CFA</p>
                       </div>
-                      <h3 className="text-xl font-bold">Lien de vente prêt</h3>
-                      <div className="bg-slate-700 p-3 rounded-lg text-xs font-mono text-emerald-400 break-all">
-                        trustlink.io/pay/vendeur-123
+                      <button onClick={nextStep} className="w-full bg-emerald-600 py-3 rounded-xl font-bold">Commander via MoMo</button>
+                    </div>
+                  )}
+                  // Étape 3 (Logistique)
+                  {currentStep === 3 && (
+                    <div className="space-y-6">
+                      <div className="w-20 h-20 bg-orange-500/20 text-orange-500 rounded-full flex items-center justify-center mx-auto text-3xl">
+                        <i className="fas fa-truck-ramp-box"></i>
                       </div>
-                      <button onClick={nextStep} className="w-full bg-emerald-600 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all">Partager le lien</button>
+                      <h3 className="text-xl font-bold">Transit Sèmè-Kraké</h3>
+                      <p className="text-sm text-slate-400">Votre colis a passé la frontière. En route vers Cotonou.</p>
+                      <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div className="bg-emerald-500 h-full w-3/4 animate-pulse"></div>
+                      </div>
+                      <button onClick={nextStep} className="w-full bg-slate-700 py-3 rounded-xl font-bold">Suivre le colis</button>
                     </div>
                   )}
 
@@ -87,18 +101,6 @@ const TransactionSimulator: React.FC = () => {
                       <button onClick={nextStep} className="w-full bg-blue-600 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all">Générer QR Code</button>
                     </div>
                   )}
-
-                  {currentStep === 3 && (
-                    <div className="space-y-6">
-                      <div className="bg-white p-4 rounded-2xl w-40 h-40 mx-auto flex items-center justify-center">
-                        <i className="fas fa-qrcode text-7xl text-slate-900"></i>
-                      </div>
-                      <h3 className="text-xl font-bold text-emerald-400">Code QR Actif</h3>
-                      <p className="text-sm text-slate-400">À présenter au livreur pour débloquer le paiement.</p>
-                      <button onClick={nextStep} className="w-full bg-slate-700 py-3 rounded-xl font-bold hover:bg-slate-600 transition-all">Livraison effectuée ?</button>
-                    </div>
-                  )}
-
                   {currentStep === 4 && (
                     <div className="space-y-6">
                       <div className="w-24 h-24 bg-emerald-500 rounded-full flex items-center justify-center mx-auto text-white text-4xl shadow-lg shadow-emerald-500/40">

@@ -6,41 +6,29 @@ const Features: React.FC = () => {
     <section id="features" className="py-24 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Pourquoi choisir <span className="text-emerald-600">TrustLink</span> ?</h2>
-            <div className="space-y-8">
-              <div className="flex gap-4 p-4 rounded-2xl bg-white shadow-sm border border-slate-100">
-                <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600">
-                  <i className="fas fa-undo text-xl"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Remboursement Automatique (48h)</h4>
-                  <p className="text-slate-600">Si le code QR n'est pas scanné dans les 48h, les fonds sont automatiquement restitués à l'acheteur. Vous gardez le contrôle.</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4 p-4 rounded-2xl bg-white shadow-sm border border-slate-100">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
-                  <i className="fas fa-globe-africa text-xl"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Nigeria ⇄ Bénin sans frictions</h4>
-                  <p className="text-slate-600">Spécialement conçu pour les échanges transfrontaliers. Conversion de devises et sécurité incluses.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 p-4 rounded-2xl bg-white shadow-sm border border-slate-100">
-                <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
-                  <i className="fas fa-shield-virus text-xl"></i>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Partenariat Paystack</h4>
-                  <p className="text-slate-600">Nous utilisons l'infrastructure de paiement la plus fiable d'Afrique pour garantir la sécurité de vos fonds.</p>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
+              <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <i className="fas fa-ship text-slate-400"></i> Importation Chine
+              </h4>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-center gap-2"><i className="fas fa-times-circle text-red-400"></i> Délai : 30 à 60 jours</li>
+                <li className="flex items-center gap-2"><i className="fas fa-times-circle text-red-400"></i> MOQ : 100+ pièces minimum</li>
+                <li className="flex items-center gap-2"><i className="fas fa-times-circle text-red-400"></i> Paiement : USD / SWIFT complexe</li>
+              </ul>
+            </div>
+            
+            <div className="p-8 bg-emerald-50 rounded-3xl border border-emerald-100 shadow-sm">
+              <h4 className="text-xl font-bold mb-4 flex items-center gap-2 text-emerald-900">
+                <i className="fas fa-bolt text-emerald-500"></i> TrustLink Nigeria
+              </h4>
+              <ul className="space-y-3 text-emerald-900/80">
+                <li className="flex items-center gap-2 font-bold"><i className="fas fa-check-circle text-emerald-500"></i> Délai : 2 à 7 jours</li>
+                <li className="flex items-center gap-2 font-bold"><i className="fas fa-check-circle text-emerald-500"></i> MOQ : À partir de 1 pièce</li>
+                <li className="flex items-center gap-2 font-bold"><i className="fas fa-check-circle text-emerald-500"></i> Paiement : MoMo (CFA) local</li>
+              </ul>
             </div>
           </div>
-          
           <div className="lg:w-1/2 relative">
             <div className="grid grid-cols-2 gap-4">
                <div className="space-y-4 pt-8">
