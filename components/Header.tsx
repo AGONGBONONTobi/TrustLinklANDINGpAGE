@@ -10,8 +10,8 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, lang, setLang }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const t = {
-    fr: { how: "Comment ça marche", features: "Avantages", join: "Rejoindre" },
-    en: { how: "How it works", features: "Benefits", join: "Join Now" }
+    fr: { how: "Comment ça marche", blog: "Blog", features: "Avantages", join: "Rejoindre" },
+    en: { how: "How it works", blog: "Blog", features: "Benefits", join: "Join Now" }
   }[lang];
 
   return (
@@ -53,6 +53,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, lang, setLang }) => {
         <div className="md:hidden bg-white border-t p-4 space-y-4 shadow-xl">
           <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="block text-slate-600 font-medium">{t.how}</a>
           <a href="#features" onClick={() => setIsMenuOpen(false)} className="block text-slate-600 font-medium">{t.features}</a>
+          <a href="#blog" className="text-slate-600 hover:text-emerald-600 font-medium transition-colors">{t.blog}</a>
           <button onClick={() => {setLang(lang === 'fr' ? 'en' : 'fr'); setIsMenuOpen(false);}} className="block text-emerald-600 font-bold uppercase">
             {lang === 'fr' ? 'Switch to English' : 'Passer en Français'}
           </button>

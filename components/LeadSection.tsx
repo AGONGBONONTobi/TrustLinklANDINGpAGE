@@ -4,12 +4,12 @@ const LeadSection: React.FC<{ lang: 'fr' | 'en' }> = ({ lang }) => {
   const t = {
     fr: {
       title: "Prêt à booster votre business ?",
-      sub: "Rejoignez les premiers entrepreneurs à bénéficier du corridor TrustLink.",
+      sub: "Join the Secure Gateway to Nigeria’s Markets: Shop in Lagos, Pay in CFA, and Receive in Cotonou – No Private Network Required.",
       btn: "Rejoindre la liste d'attente",
     },
     en: {
       title: "Ready to boost your business?",
-      sub: "Join the first entrepreneurs benefiting from the TrustLink corridor.",
+      sub: "Join the Secure Gateway to Nigeria’s Markets: Shop in Lagos, Pay in CFA, and Receive in Cotonou – No Private Network Required.",
       btn: "Join the Waitlist",
     }
   }[lang];

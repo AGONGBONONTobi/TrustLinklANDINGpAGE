@@ -1,32 +1,47 @@
 import React from 'react';
 
 const Features: React.FC<{ lang: 'fr' | 'en' }> = ({ lang }) => {
+  // Add this to your Features component
+    const sellerFeatures = {
+      fr: {
+        title: "Vendez au Bénin sans bouger",
+        list: [
+          "Paiement Garanti : Recevez vos Naira dès que l'article est vérifié.",
+          "Logistique incluse : On récupère le colis dans votre boutique.",
+          "Extension de Marché : Touchez des milliers de clients à Cotonou."
+        ]
+      },
+      en: {
+        title: "Sell to Benin without leaving Lagos",
+        list: [
+          "Guaranteed Payment: Get your Naira as soon as the item is verified.",
+          "Logistics Included: We pick up the parcel at your shop.",
+          "Market Expansion: Reach thousands of customers in Cotonou."
+        ]
+      }
+    }[lang];
   const t = {
-    fr: {
-      title: "Pourquoi choisir ",
-      span: "TrustLink ?",
-      chinaTitle: "Importation Chine",
-      chinaList: ["Délai : 30 à 60 jours", "MOQ : 100+ pièces minimum", "Paiement : USD / SWIFT complexe"],
-      trustTitle: "TrustLink Nigeria",
-      trustList: ["Délai : 2 à 7 jours", "MOQ : À partir de 1 pièce", "Paiement : MoMo (CFA) local"],
-      card1Title: "Nigeria ⇄ Bénin sans frictions",
-      card1Desc: "Conversion de devises (CFA/Naira) et sécurité logistique incluses.",
-      card2Title: "Zéro Risque d'Arnaque",
-      card2Desc: "Vos fonds sont bloqués jusqu'à ce que la marchandise arrive à Cotonou."
-    },
-    en: {
-      title: "Why choose ",
-      span: "TrustLink?",
-      chinaTitle: "China Import",
-      chinaList: ["Lead time: 30 to 60 days", "MOQ: 100+ pieces minimum", "Payment: Complex USD / SWIFT"],
-      trustTitle: "TrustLink Nigeria",
-      trustList: ["Lead time: 2 to 7 days", "MOQ: Starting from 1 piece", "Payment: Local MoMo (CFA)"],
-      card1Title: "Nigeria ⇄ Benin seamless",
-      card1Desc: "Currency conversion (CFA/Naira) and logistical security included.",
-      card2Title: "Zero Scam Risk",
-      card2Desc: "Your funds are held in escrow until the goods arrive in Cotonou."
-    }
-  }[lang];
+  fr: {
+    title: "Pourquoi choisir ",
+    span: "TrustLink ?",
+    card1Title: "Optimisation de la Trésorerie",
+    card1Desc: "Réduisez vos cycles d'approvisionnement de 60 à 5 jours. Libérez votre fonds de roulement pour une croissance accélérée.",
+    card2Title: "Couverture du Risque de Change",
+    card2Desc: "Éliminez l'exposition à la volatilité du Naira. Vos transactions sont sécurisées au taux du jour du règlement.",
+    card3Title: "Logistique Intégrée",
+    card3Desc: "Un corridor multimodal (Air/Route) sous contrôle total, de la collecte en boutique à Lagos jusqu'à la remise à Cotonou."
+  },
+  en: {
+    title: "Why choose ",
+    span: "TrustLink?",
+    card1Title: "Cash Flow Optimization",
+    card1Desc: "Reduce your supply cycles from 60 to 5 days. Free up your working capital for accelerated growth.",
+    card2Title: "Currency Risk Hedging",
+    card2Desc: "Eliminate exposure to Naira volatility. Your transactions are secured at the rate of the settlement day.",
+    card3Title: "Integrated Logistics",
+    card3Desc: "A fully controlled multimodal corridor (Air/Road), from shop collection in Lagos to delivery in Cotonou."
+  }
+}[lang];
 
   return (
     <section id="features" className="py-24 bg-slate-50 overflow-hidden">

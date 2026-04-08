@@ -1,25 +1,27 @@
 import React from 'react';
 
 const Hero: React.FC<{ lang: 'fr' | 'en' }> = ({ lang }) => {
-  const t = {
-    fr: {
-      badge: "NIGERIA - BENIN : L'ALTERNATIVE À LA CHINE",
-      h1: "Approvisionnez-vous depuis le ",
-      h1Span: "Nigeria en 48h.",
-      p: "Accédez aux grossistes de Lagos, payez en CFA et recevez vos marchandises à Cotonou sous 2 à 7 jours. Pas de MOQ, pas de stress.",
-      cta: "Rejoindre la liste d'attente",
-      users: "+500 entrepreneurs inscrits"
-    },
-    en: {
-      badge: "NIGERIA - BENIN: THE CHINA ALTERNATIVE",
-      h1: "Source your goods from ",
-      h1Span: "Nigeria in 48h.",
-      p: "Access Lagos wholesalers, pay in CFA and get your goods in Cotonou within 2 to 7 days. No MOQ, no stress.",
-      cta: "Join the Waitlist",
-      users: "+500 entrepreneurs signed up"
-    }
-  }[lang];
-
+  // Replace the Hero content in your Hero.tsx
+const t = {
+  fr: {
+    badge: "INFRASTRUCTURE LOGISTIQUE TRANSFRONTALIÈRE : NIGERIA - BÉNIN",
+    h1: "Maîtrisez votre Sourcing ",
+    h1Span: "au Nigeria.",
+    p: "Le hub transactionnel institutionnel reliant les réseaux de distribution béninois aux pôles grossistes de Lagos. Mitigez le risque de change, sécurisez vos règlements et passez à un modèle d'approvisionnement en flux tendu (48h-72h).",
+    ctaBuyer: "Scaler mes Opérations",
+    ctaSeller: "Ouvrir un Canal d'Export",
+    users: "+500 acteurs économiques et distributeurs certifiés"
+  },
+  en: {
+    badge: "BORDERLESS LOGISTICS INFRASTRUCTURE: NIGERIA - BENIN",
+    h1: "Optimize Your Nigerian ",
+    h1Span: "Sourcing Chain.",
+    p: "The institutional bridge connecting professional retail networks to Nigeria’s wholesale hubs. Mitigate currency volatility, automate cross-border settlements, and transition to a just-in-time supply model.",
+    ctaBuyer: "Scale My Operations",
+    ctaSeller: "Open Export Channel",
+    users: "+500 certified economic actors and professional distributors"
+  }
+}[lang];
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full -z-10 bg-gradient-to-br from-emerald-50 via-white to-blue-50"></div>
