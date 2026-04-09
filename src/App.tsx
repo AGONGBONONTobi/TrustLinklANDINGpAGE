@@ -9,8 +9,6 @@ import logo from './trustlink_logo.png';
 
 const TrustLinkLanding = () => {
   const [lang, setLang] = useState<'en' | 'fr'>('en');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [activeTab, setActiveTab] = useState<'seller' | 'buyer'>('seller');
   const [showPolicy, setShowPolicy] = useState(false);
 
@@ -202,12 +200,6 @@ const TrustLinkLanding = () => {
     globe: <Globe size={28} className="text-blue-600" />,
     chart: <BarChart3 size={28} className="text-blue-600" />,
     users: <Users size={28} className="text-blue-600" />,
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => { setIsSubmitting(false); setIsSuccess(true); }, 1500);
   };
 
   const steps = activeTab === 'seller' ? t.steps_seller : t.steps_buyer;
