@@ -5,7 +5,7 @@ import {
   Search, Wallet, ClipboardCheck, X, AlertTriangle,
   MapPin, Mail, Phone, ChevronRight, Users, Store
 } from 'lucide-react';
-import logo from './trustlink_logo.png';
+import logo from './trustlink_logo.png'
 
 const TrustLinkLanding = () => {
   const [lang, setLang] = useState<'en' | 'fr'>('en');
@@ -64,6 +64,7 @@ const TrustLinkLanding = () => {
         { t: "Transparent Dispute System", d: "48h claim window, in-app unboxing video proof, and a clear resolution matrix.", icon: "chart" },
         { t: "Verified Community", d: "Every seller and buyer goes through a verification process before transacting.", icon: "users" },
       ],
+      how_it_works: "How it works",
       form_title: "Join TrustLink",
       form_sub: "Seller or buyer — fill in your details to get started.",
       label_name: "Business / Full Name",
@@ -154,6 +155,7 @@ const TrustLinkLanding = () => {
         { t: "Système de Litige Transparent", d: "Délai de 48h, vidéo d'unboxing in-app, matrice de résolution claire.", icon: "chart" },
         { t: "Communauté Vérifiée", d: "Chaque vendeur et acheteur passe par un processus de vérification avant toute transaction.", icon: "users" },
       ],
+      how_it_works: "Comment ça marche",
       form_title: "Rejoindre TrustLink",
       form_sub: "Vendeur ou acheteur — remplissez vos informations pour commencer.",
       label_name: "Nom de l'entreprise / Prénom Nom",
@@ -275,7 +277,13 @@ const TrustLinkLanding = () => {
       {/* NAV */}
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-40 border-b border-slate-100">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <img src={logo} alt="TrustLink" className="h-10 w-auto" />
+          <div className="flex items-center gap-2">
+            <img 
+              src={logo} 
+              alt="TrustLink Logo" 
+              className="h-20 w-auto"
+            />
+          </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#how" className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">{t.nav_how}</a>
             <a href="#why" className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">{t.nav_why}</a>
@@ -424,11 +432,16 @@ const TrustLinkLanding = () => {
       </div>
 
       {/* FOOTER */}
+      {/* FOOTER - Version avec logo importé */}
       <footer className="bg-slate-900 text-slate-400 py-16">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div className="space-y-4">
-              <img src={logo} alt="TrustLink" className="h-10 w-auto brightness-0 invert" />
+              <img 
+                src={logo} 
+                alt="TrustLink Logo" 
+                className="h-20 w-auto brightness-0 invert"
+              />
               <p className="text-sm leading-relaxed max-w-xs">{t.footer_desc}</p>
             </div>
             <div>
@@ -461,4 +474,7 @@ const TrustLinkLanding = () => {
   );
 };
 
-export default TrustLinkLanding;
+export default function App() {
+  return <TrustLinkLanding />;
+}
+
