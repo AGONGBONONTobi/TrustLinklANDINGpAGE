@@ -77,7 +77,7 @@ const TrustLinkLanding = () => {
       why_sub: "We built the infrastructure so you can focus on what matters.",
       cards: [
         { t: "Escrow Protection", d: "Funds are never released before both parties are satisfied. No fraud, no loss.", icon: "shield" },
-        { t: "Document Trail", d: "Every order is documented with photo/video proof before shipping — protecting buyers and sellers.", icon: "package" },
+        { t: "Order Traceability", d: "Every order is tracked from placement to delivery. Both parties have full visibility on the status of the transaction at every step.", icon: "package" },
         { t: "Cross-Border Logistics", d: "Customs, transport and last-mile delivery between Nigeria and Benin — fully coordinated.", icon: "truck" },
         { t: "No Private Network Needed", d: "You no longer need a friend in Lagos or Cotonou. TrustLink is your trusted intermediary.", icon: "globe" },
         { t: "Transparent Dispute System", d: "48h claim window, in-app unboxing video proof, and a clear resolution matrix.", icon: "chart" },
@@ -168,7 +168,7 @@ const TrustLinkLanding = () => {
       why_sub: "Nous avons bâti l'infrastructure pour que vous vous concentriez sur l'essentiel.",
       cards: [
         { t: "Protection par Séquestre", d: "Les fonds ne sont jamais libérés avant satisfaction des deux parties. Ni fraude, ni perte.", icon: "shield" },
-        { t: "Traçabilité Documentée", d: "Chaque commande est documentée avec preuve photo/vidéo avant expédition.", icon: "package" },
+        { t: "Traçabilité des Commandes", d: "Chaque commande est suivie de la passation à la livraison. Les deux parties ont une visibilité complète sur le statut de la transaction à chaque étape.", icon: "package" },
         { t: "Logistique Transfrontalière", d: "Douane, transport et livraison finale entre Nigeria et Bénin — entièrement coordonnés.", icon: "truck" },
         { t: "Sans Réseau Privé", d: "Vous n'avez plus besoin d'un contact à Lagos ou Cotonou. TrustLink est votre intermédiaire de confiance.", icon: "globe" },
         { t: "Système de Litige Transparent", d: "Délai de 48h, vidéo d'unboxing in-app, matrice de résolution claire.", icon: "chart" },
