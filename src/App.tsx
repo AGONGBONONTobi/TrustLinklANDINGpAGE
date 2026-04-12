@@ -14,7 +14,7 @@ const TrustLinkLanding = () => {
 
   // Liens des formulaires Google Forms
   const sellerFormLink = "https://forms.gle/EGKZFiwXWyXFY7zp9";
-  const buyerFormLink = "https://forms.gle/LArcmJxxnC52GAGT6";
+  const buyerFormLink = "https://tally.so/r/RGJYVp";
 
   // Lien communautaire WhatsApp pour le chat bar et footer
   const whatsappCommunityLink = "https://chat.whatsapp.com/HSI5gcoVRAiLJSLSU9QXn6?mode=gi_t";
