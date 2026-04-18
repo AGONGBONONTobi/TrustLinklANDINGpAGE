@@ -17,19 +17,21 @@ const TrustLinkLanding = () => {
   const buyerFormLink = "https://tally.so/r/RGJYVp";
 
   // Lien communautaire WhatsApp pour le chat bar et footer
-  const whatsappCommunityLink = "https://chat.whatsapp.com/HSI5gcoVRAiLJSLSU9QXn6?mode=gi_t";
+  // Liens communautaires WhatsApp selon le profil
+const whatsappSellerLink = "https://chat.whatsapp.com/CrUikPkQPkpBBSvPHLUzQa?mode=gi_t";
+const whatsappBuyerLink = "https://chat.whatsapp.com/HSI5gcoVRAiLJSLSU9QXn6?mode=gi_t";
 
-  const handleSellerClick = () => {
-    window.open(sellerFormLink, '_blank');
-  };
+const handleSellerClick = () => {
+  window.open(sellerFormLink, '_blank');
+};
 
-  const handleBuyerClick = () => {
-    window.open(buyerFormLink, '_blank');
-  };
+const handleBuyerClick = () => {
+  window.open(buyerFormLink, '_blank');
+};
 
-  const handleWhatsAppClick = () => {
-    window.open(whatsappCommunityLink, '_blank');
-  };
+const handleWhatsAppClick = () => {
+  const link = activeTab === 'seller' ? whatsappSellerLink : whatsappBuyerLink;
+  window.open(link, '_blank');
 
   const t = {
     en: {
