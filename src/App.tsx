@@ -32,7 +32,7 @@ const handleBuyerClick = () => {
 const handleWhatsAppClick = () => {
   const link = activeTab === 'seller' ? whatsappSellerLink : whatsappBuyerLink;
   window.open(link, '_blank');
-
+}; // ← accolade f
   const t = {
     en: {
       nav_how: "How it Works",
